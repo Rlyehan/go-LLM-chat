@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with a LLM</title>
+    <link rel="stylesheet" type="text/css" href="/static/chat.css">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</head>
+<body>
+    <div id="chat-container" class="chat-container">
+        <!-- Chat messages will be inserted here -->
+    </div>
+    <form hx-post="/query" hx-trigger="submit" hx-swap="beforeend" hx-target="#chat-container">
+        <textarea type="text" id="query" name="query" placeholder="Ask something..." oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <div id="loading" style="display: none;">Loading...</div>
+</body>
+</html>
+
